@@ -60,6 +60,11 @@ public class MainClass {
                 break;
 
                 case 3: //Daily();
+//                	  public void setExpenditure()
+//              	    {
+//              	        System.out.println("Enter the daily expenditure");
+//              	        this.expenditure=sc.nextDouble() + this.expenditure;
+//              	    }
                 break;
 
                 case 4:  

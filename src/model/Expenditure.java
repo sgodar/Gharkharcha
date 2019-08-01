@@ -1,30 +1,46 @@
 package model;
-import java.util.Scanner;
 public class Expenditure {
 
 
 	    // instance variables - replace the example below with your own
 	    private int x;
-	    private double exp;	
-	    Scanner sc= new Scanner(System.in);
+	    private double expenditure;	
+	    private String items;
+	  ;
 	    /**
 	     * Constructor for objects of class Daily
 	     */
 	    public Expenditure()
 	    {
-	        this.exp=0;
+	        this.expenditure=0;
 	    }
 	
-	    public void setDaily()
-	    {
-	        System.out.println("Enter the daily expenditure");
-	        this.exp=sc.nextDouble() + this.exp;
-	    }
-	    public double getDaily()
-	    {
-	        double ed= this.exp;
-	        return ed;
-	    }
+	  
+	    public int getX() {
+			return x;
+		}
+
+		public void setX(int x) {
+			this.x = x;
+		}
+
+		public double getExpenditure() {
+			return expenditure;
+		}
+
+		public void setExpenditure(double expenditure) {
+			this.expenditure = expenditure;
+		}
+
+		public String getItems() {
+			return items;
+		}
+
+		public void setItems(String items) {
+			this.items = items;
+		}
+
+		
 	}
 
 
