@@ -12,6 +12,9 @@ public class MainClass {
     {
         double bill;
         double total;
+        double firstRead;
+        double startRead;
+        double lastRead;
         int ch;
         Scanner sc = new Scanner(System.in);
         Rent r= new Rent();
@@ -34,21 +37,38 @@ public class MainClass {
                 case 1: r.setRent();
                 break;
 
-                case 2: e.setUnit();
-                bill= e.ElectricityBill();
-                System.out.println("Electricity bill= "+bill);
+                case 2:startRead=e.getFirstRead();
+                if(startRead<=0)
+        	        {
+        	            System.out.println("Enter the starting meter reading unit");
+        	            firstRead=sc.nextDouble();
+        	            System.out.println("Enter the last meter reading unit");
+        	            lastRead=sc.nextDouble();
+        	            e.setFirstRead(firstRead);
+        	            e.setLastRead(lastRead);
+        	        }
+                else
+        	        {
+        	           System.out.println("Enter the last meter reading unit");
+        	           lastRead=sc.nextDouble();
+        	           e.setLastRead(lastRead);    
+        	        }
+                	
+                
+              //  bill= e.ElectricityBill();
+              //  System.out.println("Electricity bill= "+bill);
                 break;
 
                 case 3: //Daily();
                 break;
 
                 case 4:  
-                double el = e.ElectricityBill();
+             //   double el = e.ElectricityBill();
                 //System.out.println("ebill="+el);
                 double rt = r.rAmount();
                 //System.out.println("renamt="+rt);
-                double tamount=el+rt;
-                System.out.println("renamt="+tamount);
+              //  double tamount=el+rt;
+              //  System.out.println("renamt="+tamount);
                 // total=ramount.TotalRent();
                 // System.out.println("Rent amount= "+total);
                 break;
