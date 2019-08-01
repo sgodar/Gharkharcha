@@ -4,26 +4,47 @@ public class Electricity {
 	
 	
 	    // instance variables - replace the example below with your own
-	    private  double uf;
-	    private  double ul;
-	    private double uprice;
-	    Scanner sc= new Scanner(System.in);
-
+	    private  double firstRead;
+	    private  double lastRead;
+	    private double unitPrice;
+	    private double unit;
+	    
 	    public Electricity()
 	    {
 	        
-	        this.uf = 0.0;
-	        this.ul=0.0;
-	        this.uprice=15;
+	        this.firstRead = 0.0;
+	        this.lastRead=0.0;
+	        this.unitPrice=15;
 	    }
+	    
+	    
+	    
+	    public double getFirstRead() {
+			return firstRead;
+		}
 
-	    //  public Electricity(double u)
-	    // {
-	    // initialise instance variables
-	    //this.unit = u;
-	    // }
+		public void setFirstRead(double firstRead) {
+			this.firstRead = firstRead;
+		}
 
-	    public void setUnit()
+		public double getLastRead() {
+			return lastRead;
+		}
+
+		public void setLastRead(double lastRead) {
+			this.lastRead = lastRead;
+		}
+
+		public double getUnitPrice() {
+			return unitPrice;
+		}
+
+		public void setUnitPrice(double unitPrice) {
+			this.unitPrice = unitPrice;
+		}
+	
+		
+		    public void setUnit()
 	    {
 	        if(this.uf<=0)
 	        {

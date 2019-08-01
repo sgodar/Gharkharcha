@@ -1,5 +1,9 @@
 package main;
 import java.util.Scanner;
+import model.Electricity;
+import model.Rent;
+import model.Expenditure;
+
 public class MainClass {
 
 
@@ -10,7 +14,8 @@ public class MainClass {
         double total;
         int ch;
         Scanner sc = new Scanner(System.in);
-       
+        Rent r= new Rent();
+        Electricity e = new Electricity();
         //RentAmount ramount = new RentAmount();
       
         do{
@@ -49,11 +54,11 @@ public class MainClass {
                 break;
 
                 case 5: //TotalExpenditure();
-                double rent=r.rAmount();
-                double ebill= e.ElectricityBill();
-                double daily = d.getDaily();
-                double expenditure= rent+ebill+daily;
-                System.out.println("total expenditure per month= "+expenditure);;
+                //double rent=r.rAmount();
+               // double ebill= e.ElectricityBill();
+                //double daily = d.getDaily();
+                //double expenditure= rent+ebill+daily;
+               // System.out.println("total expenditure per month= "+expenditure);;
                 break;
 
                 case 6: //Exist();
