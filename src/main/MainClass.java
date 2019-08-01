@@ -15,6 +15,7 @@ public class MainClass {
         double firstRead;
         double startRead;
         double lastRead;
+        double rent;
         int ch;
         Scanner sc = new Scanner(System.in);
         Rent r= new Rent();
@@ -34,30 +35,32 @@ public class MainClass {
             ch= sc.nextInt();
             switch(ch)
             {
-                case 1: r.setRent();
-                break;
+                case 1: System.out.println("Enter the rent amount");
+	        	        rent=sc.nextDouble();
+	        	        r.setRent(rent);
+	        	        break;
 
-                case 2:startRead=e.getFirstRead();
-                if(startRead<=0)
-        	        {
-        	            System.out.println("Enter the starting meter reading unit");
-        	            firstRead=sc.nextDouble();
-        	            System.out.println("Enter the last meter reading unit");
-        	            lastRead=sc.nextDouble();
-        	            e.setFirstRead(firstRead);
-        	            e.setLastRead(lastRead);
-        	        }
-                else
-        	        {
-        	           System.out.println("Enter the last meter reading unit");
-        	           lastRead=sc.nextDouble();
-        	           e.setLastRead(lastRead);    
-        	        }
-                	
-                
-              //  bill= e.ElectricityBill();
-              //  System.out.println("Electricity bill= "+bill);
-                break;
+                case 2: startRead=e.getFirstRead();
+		                if(startRead<=0)
+		        	        {
+		        	            System.out.println("Enter the starting meter reading unit");
+		        	            firstRead=sc.nextDouble();
+		        	            System.out.println("Enter the last meter reading unit");
+		        	            lastRead=sc.nextDouble();
+		        	            e.setFirstRead(firstRead);
+		        	            e.setLastRead(lastRead);
+		        	        }
+		                else
+		        	        {
+		        	           System.out.println("Enter the last meter reading unit");
+		        	           lastRead=sc.nextDouble();
+		        	           e.setLastRead(lastRead);    
+		        	        }
+		                break;	
+		                
+		              //  bill= e.ElectricityBill();
+		              //  System.out.println("Electricity bill= "+bill);
+		                
 
                 case 3: //Daily();
 //                	  public void setExpenditure()

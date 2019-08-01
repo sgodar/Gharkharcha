@@ -6,7 +6,7 @@ public class Expenditure {
 	    private int x;
 	    private double expenditure;	
 	    private String items;
-	  ;
+	  
 	    /**
 	     * Constructor for objects of class Daily
 	     */
