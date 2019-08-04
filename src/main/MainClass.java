@@ -20,8 +20,7 @@ public class MainClass {
         Scanner sc = new Scanner(System.in);
         Rent r= new Rent();
         Electricity e = new Electricity();
-        //RentAmount ramount = new RentAmount();
-      
+     
         do{
             System.out.println("---Menu---");
             System.out.println("1.Rent");
@@ -45,18 +44,12 @@ public class MainClass {
 		        	        {
 		        	            System.out.println("Enter the starting meter reading unit");
 		        	            firstRead=sc.nextDouble();
-		        	            System.out.println("Enter the last meter reading unit");
-		        	            lastRead=sc.nextDouble();
 		        	            e.setFirstRead(firstRead);
-		        	            e.setLastRead(lastRead);
 		        	        }
-		                else
-		        	        {
-		        	           System.out.println("Enter the last meter reading unit");
-		        	           lastRead=sc.nextDouble();
-		        	           e.setLastRead(lastRead);    
-		        	        }
-		                break;	
+		        	    System.out.println("Enter the last meter reading unit");
+		        	    lastRead=sc.nextDouble();
+		        	    e.setLastRead(lastRead);    
+		        	    break;	
 		                
 		              //  bill= e.ElectricityBill();
 		              //  System.out.println("Electricity bill= "+bill);
