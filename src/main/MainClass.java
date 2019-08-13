@@ -1,5 +1,8 @@
 package main;
+import java.sql.SQLException;
 import java.util.Scanner;
+
+import DatabBase.Database;
 import model.Electricity;
 import model.Rent;
 import model.Expenditure;
@@ -8,14 +11,14 @@ public class MainClass {
 
 
 
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
         double bill;
         double total;
         double firstRead;
         double startRead;
         double lastRead;
-        double rent;
+        int rent;
         int ch;
         Scanner sc = new Scanner(System.in);
         Rent r= new Rent();
@@ -35,8 +38,10 @@ public class MainClass {
             switch(ch)
             {
                 case 1: System.out.println("Enter the rent amount");
-	        	        rent=sc.nextDouble();
-	        	        r.setRent(rent);
+	        	        rent=sc.nextInt();
+	        	        r.setRent( rent);
+	        	        Database db= new Database();
+	        	        db.addRent(rent, null, null, false);
 	        	        break;
 
                 case 2: startRead=e.getFirstRead();

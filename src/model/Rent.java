@@ -1,22 +1,22 @@
 package model;
 public class Rent {
 	
-	    
-	    private int x;
-	    private  double rent;
+	   
+	   
+	    private  int rent;
 	  
 	         
-	    public void setRent(double rent) {
-			this.rent = rent;
+	    public void setRent(int rent2) {
+			this.rent = rent2;
 		}
 
-	    public double getRent() {
+	    public int getRent() {
 			return rent;
 		}
 
-	   	public  double rAmount()
+	   	public  int rAmount()
 	    {
-	        double ramount= getRent();
+	        int ramount= getRent();
 	        return ramount;
 	    }
 	}

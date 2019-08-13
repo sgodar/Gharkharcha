@@ -4,28 +4,43 @@ import java.sql.Connection;
 //import java.sql.ResultSet;
 import java.sql.SQLException;
 //import java.util.ArrayList;
-//import java.sql.PreparedStatement;
+import java.sql.PreparedStatement;
 //import java.sql.ResultSet;
-//import java.sql.SQLException;
+import java.sql.SQLException;
 //import java.sql.Statement;
-//import java.util.Date;
+import java.util.Date;
 //import com.mysql.jdbc.Connection;
-//import com.mysql.jdbc.Gharkharcha;
+//import lib.mysql.jdbc.Gharkharcha;
 
 //import week2.main.Vertex;
 public class Database {
 	// connection string
 	String url = "jdbc:mysql://localhost:3306/gharkharcha";
 	String username = "root";
-	String password = "";
+	String password = "root";
 	String sql = "";
-	
+	private PreparedStatement preparedStatement = null;
 	
 	Connection con;
 	
 	public Database() throws SQLException {
 		con = (Connection) DriverManager.getConnection(url, username, password);
 
+	}
+	public void addRent( int RentPrice, Date Month, Date PaidDate, boolean Status) throws Exception  {
+		String query = "INSERT INTO `" + "Rent" + " (`RentPrice`, `Month`, `PaidDate`, `PaidStatus`)"
+				      + "VALUES (NULL, ?, ?, ?, ? )";
+		try {
+			preparedStatement = con.prepareStatement( query );
+			preparedStatement.setInt(1, RentPrice );
+			preparedStatement.setDate(2, (java.sql.Date) Month );
+			preparedStatement.setDate(3, (java.sql.Date) PaidDate);
+			preparedStatement.setBoolean(4, Status );
+			preparedStatement.executeUpdate();
+
+		} catch ( Exception e) {
+			throw e;
+		}
 	}
 //	try {
 //		// 1. get the connection object
