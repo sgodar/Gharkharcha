@@ -4,12 +4,12 @@ public class total {
 
 
     // instance variables - replace the example below with your own
-    private int x;
+  private int x;
 
     /**
      * Constructor for objects of class TotalExpenditure
      */
-    public Total()
+ //   public Total()
     {
         // initialise instance variables
         x = 0;
