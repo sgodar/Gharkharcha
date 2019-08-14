@@ -20,12 +20,15 @@ public class MainClass {
         int lastRead;
         int totalUnit;
         double ebill;
+        double itemPrice;
+        String itemName;
         int rent;
         int unitPrice;
         int ch;
         Scanner sc = new Scanner(System.in);
         Rent r= new Rent();
-        Electricity e = new Electricity();
+        Electricity ele = new Electricity();
+        Expenditure exp = new Expenditure();
      
         do{
             System.out.println("---Menu---");
@@ -47,53 +50,59 @@ public class MainClass {
 	        	        db.addRent(rent, null, null, false);
 	        	        break;
 
-                case 2: startRead=e.getFirstRead();
+                case 2: startRead=ele.getFirstRead();
 		                if(startRead<=0)
 		        	        {
 		        	            System.out.println("Enter the starting meter reading unit");
 		        	            firstRead=sc.nextInt();
-		        	            e.setFirstRead(firstRead);
+		        	            ele.setFirstRead(firstRead);
 		        	        }
 		        	    System.out.println("Enter the last meter reading unit");
 		        	    lastRead=sc.nextInt();
-		        	    e.setLastRead(lastRead);    
+		        	    ele.setLastRead(lastRead);    
 		        	    break;	
-		                          
-
-                case 3: //Daily();
+		                         
+                case 3: System.out.println("Enter the item name: ");
+                		itemName=sc.next();
+                		System.out.println("Enter the item price: ");
+                		itemPrice = sc.nextDouble();
+                		exp.setItem(itemName,itemPrice);
+                		exp.getItemName();
+                
 //                	  public void setExpenditure()
 //              	    {
 //              	        System.out.println("Enter the daily expenditure");
 //              	        this.expenditure=sc.nextDouble() + this.expenditure;
 //              	    }
-                break;
+                		break;
 
-                case 4:  
-                	firstRead = e.getFirstRead();
-                	lastRead = e.getLastRead();
-                	unitPrice = e.getUnitPrice();
-                	totalUnit = lastRead-firstRead;
-                	ebill= unitPrice*totalUnit;
-                	rent = r.getRent();
-                	total = ebill+rent;
-                	System.out.println("totol Rent amount= "+total);
+                case 4: firstRead = ele.getFirstRead();
+                		lastRead = ele.getLastRead();
+                		unitPrice = ele.getUnitPrice();
+                		totalUnit = lastRead-firstRead;
+                		ebill= unitPrice*totalUnit;
+                		rent = r.getRent();
+                		total = ebill+rent;
+                		System.out.println("totol Rent amount= "+total);
               
-                break;
+                		break;
 
-                case 5: //TotalExpenditure();
-                //double rent=r.rAmount();
-               // double ebill= e.ElectricityBill();
-                //double daily = d.getDaily();
-                //double expenditure= rent+ebill+daily;
-               // System.out.println("total expenditure per month= "+expenditure);;
-                break;
+                case 5: firstRead = ele.getFirstRead();
+            			lastRead = ele.getLastRead();
+            			unitPrice = ele.getUnitPrice();
+            			totalUnit = lastRead-firstRead;
+            			ebill= unitPrice*totalUnit;
+            			rent = r.getRent();
+            			total = ebill+rent;
+            			System.out.println("totol Rent amount= "+total);
+            			break;
 
                 case 6: //Exist();
-                break;
+                		break;
 
                 default:
-                System.out.println("invalid input try again");
-                break;
+                		System.out.println("invalid input try again");
+                		break;
 
             }}while(ch!=6);
 

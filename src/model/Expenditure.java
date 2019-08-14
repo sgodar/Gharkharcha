@@ -3,10 +3,12 @@ public class Expenditure {
 
 
 	    // instance variables - replace the example below with your own
-	    private int x;
+	    
 	    private double expenditure;	
-	    private String items;
-	  
+	    private String itemName;
+	    private double itemPrice;
+	    private String item;
+	    	  
 	    /**
 	     * Constructor for objects of class Daily
 	     */
@@ -15,31 +17,27 @@ public class Expenditure {
 	        this.expenditure=0;
 	    }
 	
-	  
-	    public int getX() {
-			return x;
+		public String getItemName() {
+			return this.itemName;
+		}
+		public double getItemPrice() {
+			return this.itemPrice;
+		}
+		public Expenditure getExpenditure() {
+			Expenditure exp=new Expenditure();
+			exp.itemName=this.itemName;
+			exp.itemPrice=this.itemPrice;
+			return exp;
+		}
+		
+		public void setItem(String itemName, double itemPrice) {
+			this.itemName = itemName;
+			this.itemPrice=itemPrice;
 		}
 
-		public void setX(int x) {
-			this.x = x;
-		}
+	
 
-		public double getExpenditure() {
-			return expenditure;
-		}
-
-		public void setExpenditure(double expenditure) {
-			this.expenditure = expenditure;
-		}
-
-		public String getItems() {
-			return items;
-		}
-
-		public void setItems(String items) {
-			this.items = items;
-		}
-
+		
 		
 	}
 
