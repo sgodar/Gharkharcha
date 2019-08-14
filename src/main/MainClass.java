@@ -1,7 +1,5 @@
 package main;
-import java.sql.SQLException;
 import java.util.Scanner;
-
 import DatabBase.Database;
 import model.Electricity;
 import model.Rent;
@@ -9,17 +7,16 @@ import model.Expenditure;
 
 public class MainClass {
 
-
-
     public static void main(String[] args) throws Exception
     {
+    	
         double bill;
         double total;
         int firstRead;
         int startRead;
         int lastRead;
         int totalUnit;
-        double ebill;
+        int ebill;
         double itemPrice;
         String itemName;
         int rent;
@@ -29,7 +26,7 @@ public class MainClass {
         Rent r= new Rent();
         Electricity ele = new Electricity();
         Expenditure exp = new Expenditure();
-     
+     GrandTotal gt = new  GrandTotal();
         do{
             System.out.println("---Menu---");
             System.out.println("1.Rent");
@@ -67,33 +64,19 @@ public class MainClass {
                 		System.out.println("Enter the item price: ");
                 		itemPrice = sc.nextDouble();
                 		exp.setItem(itemName,itemPrice);
-                		exp.getItemName();
-                
-//                	  public void setExpenditure()
-//              	    {
-//              	        System.out.println("Enter the daily expenditure");
-//              	        this.expenditure=sc.nextDouble() + this.expenditure;
-//              	    }
+                		//exp.getItemName();
+                		//exp.getItemPrice();                		          	  
                 		break;
 
-                case 4: firstRead = ele.getFirstRead();
-                		lastRead = ele.getLastRead();
-                		unitPrice = ele.getUnitPrice();
-                		totalUnit = lastRead-firstRead;
-                		ebill= unitPrice*totalUnit;
+                case 4: ebill=gt.Total();
                 		rent = r.getRent();
                 		total = ebill+rent;
-                		System.out.println("totol Rent amount= "+total);
-              
+                		System.out.println("totol Rent amount= "+total);              
                 		break;
 
-                case 5: firstRead = ele.getFirstRead();
-            			lastRead = ele.getLastRead();
-            			unitPrice = ele.getUnitPrice();
-            			totalUnit = lastRead-firstRead;
-            			ebill= unitPrice*totalUnit;
+                case 5: ebill=gt.Total();
             			rent = r.getRent();
-            			total = ebill+rent;
+            			total = gt.Total(ebill,rent);
             			System.out.println("totol Rent amount= "+total);
             			break;
 
@@ -104,7 +87,33 @@ public class MainClass {
                 		System.out.println("invalid input try again");
                 		break;
 
-            }}while(ch!=6);
-
+            }
+        }while(ch!=6);
+      
     }
+	
+}
+class GrandTotal
+{
+	int firstRead;
+    int startRead;
+    int lastRead;
+    int unitPrice;
+	Electricity ele = new Electricity();
+	public  int Total()
+	{
+		firstRead = ele.getFirstRead();
+		lastRead = ele.getLastRead();
+		unitPrice = ele.getUnitPrice();
+		int totalUnit = lastRead-firstRead;
+		int ebill= unitPrice*totalUnit;
+		return ebill;
+	}
+	
+	public  int Total(int ebill,int rent)
+	{		
+		int total = ebill+rent;
+		return total;
+	}
+	
 }

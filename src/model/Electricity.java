@@ -5,7 +5,7 @@ public class Electricity {
 	    // instance variables - replace the example below with your own
 	    private int firstRead;
 	    private int lastRead;
-	    private int unitPrice;
+	    private int unitPrice=15;
 	    private int unit;
 	    
 	    public Electricity()
