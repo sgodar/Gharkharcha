@@ -3,64 +3,64 @@ public class Electricity {
 	
 	
 	    // instance variables - replace the example below with your own
-	    private double firstRead;
-	    private double lastRead;
-	    private double unitPrice;
-	    private double unit;
+	    private int firstRead;
+	    private int lastRead;
+	    private int unitPrice;
+	    private int unit;
 	    
 	    public Electricity()
 	    {
 	        
-	        this.firstRead = 0.0;
-	        this.lastRead=0.0;
+	        this.firstRead = 0;
+	        this.lastRead=0;
 	        this.unitPrice=15;
 	    }
 	   	    
-	    public double getFirstRead() {
+	    public int getFirstRead() {
 			return firstRead;
 		}
 
-		public void setFirstRead(double firstRead) {
+		public void setFirstRead(int firstRead) {
 			this.firstRead = firstRead;
 		}
 
-		public double getLastRead() {
+		public int getLastRead() {
 			return lastRead;
 		}
 
-		public void setLastRead(double lastRead) {
+		public void setLastRead(int lastRead) {
 			this.lastRead = lastRead;
 		}
 
-		public double getUnitPrice() {
+		public int getUnitPrice() {
 			return unitPrice;
 		}
 
-		public void setUnitPrice(double unitPrice) {
+		public void setUnitPrice(int unitPrice) {
 			this.unitPrice = unitPrice;
 		}
 	
 		
 		
 
-	  //  public double getUnit()
+	  //  public int getUnit()
 	  //  {
-	        //double uf = this.uf;
+	        //int uf = this.uf;
 	        //System.out.println("uf = "+uf);
-	       // double ul = this.ul;
+	       // int ul = this.ul;
 	        //System.out.println("ul = "+ul);
-	        //double unit= ul-uf;
+	        //int unit= ul-uf;
 	      //  return unit;
 
 	//    }
 
-	  //  public double ElectricityBill()
+	  //  public int ElectricityBill()
 	  //  {
-	       // double u= getUnit();
+	       // int u= getUnit();
 	        //System.out.println("unit= "+u);
-	      //  double p=this.uprice;
+	      //  int p=this.uprice;
 	        //System.out.println("unprice= "+p);
-	       // double eBill=u*p;
+	       // int eBill=u*p;
 	       // System.out.println("Electricity bill= "+eBill);
 	       // return eBill;
 	  //  }

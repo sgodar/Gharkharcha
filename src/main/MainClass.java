@@ -15,10 +15,13 @@ public class MainClass {
     {
         double bill;
         double total;
-        double firstRead;
-        double startRead;
-        double lastRead;
+        int firstRead;
+        int startRead;
+        int lastRead;
+        int totalUnit;
+        double ebill;
         int rent;
+        int unitPrice;
         int ch;
         Scanner sc = new Scanner(System.in);
         Rent r= new Rent();
@@ -48,17 +51,14 @@ public class MainClass {
 		                if(startRead<=0)
 		        	        {
 		        	            System.out.println("Enter the starting meter reading unit");
-		        	            firstRead=sc.nextDouble();
+		        	            firstRead=sc.nextInt();
 		        	            e.setFirstRead(firstRead);
 		        	        }
 		        	    System.out.println("Enter the last meter reading unit");
-		        	    lastRead=sc.nextDouble();
+		        	    lastRead=sc.nextInt();
 		        	    e.setLastRead(lastRead);    
 		        	    break;	
-		                
-		              //  bill= e.ElectricityBill();
-		              //  System.out.println("Electricity bill= "+bill);
-		                
+		                          
 
                 case 3: //Daily();
 //                	  public void setExpenditure()
@@ -69,14 +69,15 @@ public class MainClass {
                 break;
 
                 case 4:  
-             //   double el = e.ElectricityBill();
-                //System.out.println("ebill="+el);
-                double rt = r.rAmount();
-                //System.out.println("renamt="+rt);
-              //  double tamount=el+rt;
-              //  System.out.println("renamt="+tamount);
-                // total=ramount.TotalRent();
-                // System.out.println("Rent amount= "+total);
+                	firstRead = e.getFirstRead();
+                	lastRead = e.getLastRead();
+                	unitPrice = e.getUnitPrice();
+                	totalUnit = lastRead-firstRead;
+                	ebill= unitPrice*totalUnit;
+                	rent = r.getRent();
+                	total = ebill+rent;
+                	System.out.println("totol Rent amount= "+total);
+              
                 break;
 
                 case 5: //TotalExpenditure();
