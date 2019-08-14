@@ -16,7 +16,7 @@ public class MainClass {
         int startRead;
         int lastRead;
         int ebill;
-        double itemPrice;
+        int itemPrice;
         String itemName;
         int rent;
         int ch;
@@ -60,7 +60,7 @@ public class MainClass {
                 case 3: System.out.println("Enter the item name: ");
                 		itemName=sc.next();
                 		System.out.println("Enter the item price: ");
-                		itemPrice = sc.nextDouble();
+                		itemPrice = sc.nextInt();
                 		exp.setItem(itemName,itemPrice);
                 		//exp.getItemName();
                 		//exp.getItemPrice();                		          	  
@@ -84,7 +84,6 @@ public class MainClass {
                 default:
                 		System.out.println("invalid input try again");
                 		break;
-
             }
         }while(ch!=6);
       
@@ -119,5 +118,9 @@ class GrandTotal
 		int total = ebill+rent;
 		return total;
 	}
+//	public int Total()
+//	{
+//		
+//	}
 	
 }
