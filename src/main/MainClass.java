@@ -10,17 +10,15 @@ public class MainClass {
     public static void main(String[] args) throws Exception
     {
     	
-        double bill;
+        //double bill;
         double total;
         int firstRead;
         int startRead;
         int lastRead;
-        int totalUnit;
         int ebill;
         double itemPrice;
         String itemName;
         int rent;
-        int unitPrice;
         int ch;
         Scanner sc = new Scanner(System.in);
         Rent r= new Rent();
@@ -98,14 +96,15 @@ class GrandTotal
 	int firstRead;
     int startRead;
     int lastRead;
-    int unitPrice;
+    int unitPrice=15;
+    int totalUnit;
 	Electricity ele = new Electricity();
 	public  int Total()
 	{
 		firstRead = ele.getFirstRead();
 		lastRead = ele.getLastRead();
-		unitPrice = ele.getUnitPrice();
-		int totalUnit = lastRead-firstRead;
+		//unitPrice = ele.getUnitPrice();
+		totalUnit = lastRead-firstRead;
 		int ebill= unitPrice*totalUnit;
 		return ebill;
 	}

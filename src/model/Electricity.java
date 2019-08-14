@@ -5,7 +5,7 @@ public class Electricity {
 	    // instance variables - replace the example below with your own
 	    private int firstRead;
 	    private int lastRead;
-	    private int unitPrice=15;
+	   // private int unitPrice=15;
 	    private int unit;
 	    
 	    public Electricity()
@@ -13,7 +13,7 @@ public class Electricity {
 	        
 	        this.firstRead = 0;
 	        this.lastRead=0;
-	        this.unitPrice=15;
+	       // this.unitPrice=15;
 	    }
 	   	    
 	    public int getFirstRead() {
@@ -32,14 +32,14 @@ public class Electricity {
 			this.lastRead = lastRead;
 		}
 
-		public int getUnitPrice() {
-			return unitPrice;
-		}
-
-		public void setUnitPrice(int unitPrice) {
-			this.unitPrice = unitPrice;
-		}
-	
+//		public int getUnitPrice() {
+//			return unitPrice;
+//		}
+//
+//		public void setUnitPrice(int unitPrice) {
+//			this.unitPrice = unitPrice;
+//		}
+//	
 		
 		
 
