@@ -4,9 +4,9 @@ public class Expenditure {
 
 	    // instance variables - replace the example below with your own
 	    
-	    private double expenditure;	
+	    private int expenditure;	
 	    private String itemName;
-	    private double itemPrice;
+	    private int itemPrice;
 	    private String item;
 	    	  
 	    /**
@@ -20,7 +20,7 @@ public class Expenditure {
 		public String getItemName() {
 			return this.itemName;
 		}
-		public double getItemPrice() {
+		public int getItemPrice() {
 			return this.itemPrice;
 		}
 		public Expenditure getExpenditure() {
@@ -30,7 +30,7 @@ public class Expenditure {
 			return exp;
 		}
 		
-		public void setItem(String itemName, double itemPrice) {
+		public void setItem(String itemName, int itemPrice) {
 			this.itemName = itemName;
 			this.itemPrice=itemPrice;
 		}

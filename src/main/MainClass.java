@@ -98,6 +98,7 @@ class GrandTotal
     int lastRead;
     int unitPrice=15;
     int totalUnit;
+    int expenses;
     Expenditure expenditure;
 	Electricity ele = new Electricity();
 	Expenditure exp = new Expenditure();
@@ -113,8 +114,8 @@ class GrandTotal
 	
 	public  int Total(int ebill,int rent)
 	{		
-		expenditure=exp.getExpenditure();
-		expenditure.getItemPrice();
+		expenditure=exp.getExpenditure();//getting exp obj from expenditure class
+		expenses= expenditure.getItemPrice();//extracting expenditure obj
 		int total = ebill+rent;
 		return total;
 	}

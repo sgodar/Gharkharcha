@@ -10,7 +10,6 @@ public class Electricity {
 	    
 	    public Electricity()
 	    {
-	        
 	        this.firstRead = 0;
 	        this.lastRead=0;
 	       // this.unitPrice=15;
