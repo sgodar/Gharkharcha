@@ -6,8 +6,7 @@ public class Electricity {
 	private int firstRead;
 	private int lastRead;
 	// private int unitPrice=15;
-	private int unit;
-
+	
 	public Electricity()
 	{
 		this.firstRead = 0;
