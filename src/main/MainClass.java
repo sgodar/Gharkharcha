@@ -15,12 +15,12 @@ public class MainClass {
 	//		System.out.println("Hello");
 //		Class.forName("com.mysql.jdbc.Driver");
 //		Connection con = (Connection) DriverManager.getConnection("");
-		
+		Database db= new Database();
 		double bill;
 		double total;
-		int firstRead;
+		int firstRead = 0;
 		int startRead;
-		int lastRead;
+		int secondRead;
 		int ebill;
 		int itemPrice;
 		String itemName;
@@ -47,7 +47,6 @@ public class MainClass {
 			case 1: System.out.println("Enter the rent amount");
 			rent=sc.nextInt();
 			r.setRent( rent);
-			Database db= new Database();
 			db.addRent(rent, "", "", true);
 			break;
 
@@ -57,10 +56,12 @@ public class MainClass {
 				System.out.println("Enter the starting meter reading unit");
 				firstRead=sc.nextInt();
 				ele.setFirstRead(firstRead);
+				
 			}
 			System.out.println("Enter the last meter reading unit");
-			lastRead=sc.nextInt();
-			ele.setLastRead(lastRead);    
+			secondRead=sc.nextInt();
+			ele.setLastRead(secondRead);
+			db.addElectricity(firstRead,secondRead,"");
 			break;	
 
 			case 3: System.out.println("Enter the item name: ");

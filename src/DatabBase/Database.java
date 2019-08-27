@@ -47,7 +47,7 @@ public class Database {
 	//	}
 
 	public void addRent(int RentPrice, String Month, String PaidDate, boolean Status) throws SQLException {
-		sql ="INSERT INTO Rent (RentPrice,PaidStatus)" + "VALUES (?,? )";
+		sql ="INSERT INTO Rent (RentPrice,PaidStatus)" + "VALUES (?,?)";
 		//		sql = "Insert into vertex (name,latitude,longitude) " + "values('" + v.getName() + "', " + v.getLatitude()
 		//				+ ", " + v.getLongitude() + ")";
 		// System.out.println(sql);
@@ -58,6 +58,18 @@ public class Database {
 			//preparedStatement.setString(2,  Month );
 			//preparedStatement.setString(3,  PaidDate);
 			preparedStatement.setBoolean(2, Status );
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	public void addElectricity(int firstRead, int lastRead, String AddedOn) throws SQLException {
+		sql ="INSERT INTO Electricity (FirstRead,SecondRead)" + "VALUES (?,? )";
+				try {
+			preparedStatement = (PreparedStatement) con.prepareStatement(sql);
+			preparedStatement.setInt(1, firstRead );
+			preparedStatement.setInt(2, lastRead );
 			preparedStatement.executeUpdate();
 			preparedStatement.close();
 		} catch (Exception e) {
