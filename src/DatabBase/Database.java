@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.Date;
 //import lib.java.jdbc.Connection;
 //import lib.mysql.jdbc.Gharkharcha;
+import model.Expenditure;
 
 //import week4.model.Vertex;
 
@@ -76,6 +77,29 @@ public class Database {
 			throw e;
 		}
 	}
-	
+	public void addExpDaily(String itemName, int itemPrice, String AddedOn) throws SQLException {
+		sql ="INSERT INTO ExpDaily (CategoryName,CategoryPrice)" + "VALUES (?,? )";
+				try {
+			preparedStatement = (PreparedStatement) con.prepareStatement(sql);
+			preparedStatement.setString(1, itemName );
+			preparedStatement.setInt(2, itemPrice );
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+		} catch (Exception e) {
+			throw e;
+		}
+	}
+	public void addExpDaily(Expenditure exp) throws SQLException {
+		sql ="INSERT INTO ExpDaily (CategoryName,CategoryPrice)" + "VALUES (?,? )";
+				try {
+			preparedStatement = (PreparedStatement) con.prepareStatement(sql);
+			preparedStatement.setString(1, exp.getItemName());
+			preparedStatement.setInt(2, exp.getItemPrice());
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
+		} catch (Exception e) {
+			throw e;
+		}
+	}
 }
 

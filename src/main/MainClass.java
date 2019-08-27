@@ -1,4 +1,6 @@
 package main;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.sql.DriverManager;
 import java.util.Scanner;
 import com.mysql.jdbc.Connection;
@@ -12,10 +14,8 @@ public class MainClass {
 
 	public static void main(String[] args) throws Exception
 	{
-	//		System.out.println("Hello");
-//		Class.forName("com.mysql.jdbc.Driver");
-//		Connection con = (Connection) DriverManager.getConnection("");
 		Database db= new Database();
+		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 		double bill;
 		double total;
 		int firstRead = 0;
@@ -65,10 +65,16 @@ public class MainClass {
 			break;	
 
 			case 3: System.out.println("Enter the item name: ");
-			itemName=sc.next();
+			itemName=reader.readLine();// this will read two words
+			//itemName=sc.next();
+			//sc.next();
 			System.out.println("Enter the item price: ");
 			itemPrice = sc.nextInt();
 			exp.setItem(itemName,itemPrice);
+			db.addExpDaily(exp);
+			//db.addExpDaily(itemName, itemPrice,"");
+			
+			
 			//exp.getItemName();
 			//exp.getItemPrice();                		          	  
 			break;
