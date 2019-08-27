@@ -31,8 +31,8 @@ public class Database {
 	
 	//	public void addRent( int RentPrice, Date Month, Date PaidDate, boolean Status) throws Exception  {
 	//		
-	//		String query = "INSERT INTO `" + "Rent" + " (`RentPrice`, `Month`, `PaidDate`, `PaidStatus`)"
-	//				+ "VALUES (NULL, ?, ?, ?, ? )";
+	//		String query = "INSERT INTO " + "Rent" + " ('RentPrice', 'Month', 'PaidDate', 'PaidStatus')"
+	//			+ "VALUES (NULL, ?, ?, ?, ? )";
 	//		try {
 	//			preparedStatement = con.prepareStatement( query );
 	//			preparedStatement.setInt(1, RentPrice );
@@ -46,16 +46,20 @@ public class Database {
 	//		}
 	//	}
 
-	public void addRent(int RentPrice, Date Month, Date PaidDate, boolean Status) throws SQLException {
-		sql ="INSERT INTO `\" + \"Rent\" + \" (`RentPrice`, `Month`, `PaidDate`, `PaidStatus`)\"\r\n" + 
-				"//				+ \"VALUES (NULL, ?, ?, ?, ? )";
+	public void addRent(int RentPrice, String Month, String PaidDate, boolean Status) throws SQLException {
+		sql ="INSERT INTO Rent (RentPrice,PaidStatus)" + "VALUES (?,? )";
 		//		sql = "Insert into vertex (name,latitude,longitude) " + "values('" + v.getName() + "', " + v.getLatitude()
 		//				+ ", " + v.getLongitude() + ")";
 		// System.out.println(sql);
-		stmt = (Statement) con.createStatement();
+		
 		try {
-		stmt.executeUpdate(sql);
-		stmt.close();
+			preparedStatement = (PreparedStatement) con.prepareStatement(sql);
+			preparedStatement.setInt(1, RentPrice );
+			//preparedStatement.setString(2,  Month );
+			//preparedStatement.setString(3,  PaidDate);
+			preparedStatement.setBoolean(2, Status );
+			preparedStatement.executeUpdate();
+			preparedStatement.close();
 		} catch (Exception e) {
 			throw e;
 		}

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 13, 2019 at 02:05 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.6
+-- Generation Time: Aug 27, 2019 at 06:14 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -57,10 +57,20 @@ CREATE TABLE `expdaily` (
 CREATE TABLE `rent` (
   `RentID` int(20) NOT NULL,
   `RentPrice` int(20) NOT NULL,
-  `Month` datetime(6) NOT NULL,
-  `PaidDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `Month` datetime(6) DEFAULT CURRENT_TIMESTAMP(6),
+  `PaidDate` datetime(6) DEFAULT CURRENT_TIMESTAMP(6),
   `PaidStatus` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rent`
+--
+
+INSERT INTO `rent` (`RentID`, `RentPrice`, `Month`, `PaidDate`, `PaidStatus`) VALUES
+(1, 242, '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', 0),
+(2, 3450, NULL, NULL, 0),
+(3, 4500, '2019-08-27 09:07:32.803182', '2019-08-27 09:07:32.803182', 0),
+(4, 34324, '2019-08-27 09:09:02.998990', '2019-08-27 09:09:02.998990', 1);
 
 --
 -- Indexes for dumped tables
@@ -92,7 +102,7 @@ ALTER TABLE `rent`
 -- AUTO_INCREMENT for table `rent`
 --
 ALTER TABLE `rent`
-  MODIFY `RentID` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `RentID` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,5 +1,8 @@
 package main;
+import java.sql.DriverManager;
 import java.util.Scanner;
+import com.mysql.jdbc.Connection;
+
 import DatabBase.Database;
 import model.Electricity;
 import model.Rent;
@@ -9,8 +12,11 @@ public class MainClass {
 
 	public static void main(String[] args) throws Exception
 	{
-
-		//double bill;
+	//		System.out.println("Hello");
+//		Class.forName("com.mysql.jdbc.Driver");
+//		Connection con = (Connection) DriverManager.getConnection("");
+		
+		double bill;
 		double total;
 		int firstRead;
 		int startRead;
@@ -42,7 +48,7 @@ public class MainClass {
 			rent=sc.nextInt();
 			r.setRent( rent);
 			Database db= new Database();
-			db.addRent(rent, null, null, false);
+			db.addRent(rent, "", "", true);
 			break;
 
 			case 2: startRead=ele.getFirstRead();
