@@ -1,8 +1,9 @@
 package model;
-public class Rent {
+public class Rent
+{
  private int rent;
- public void setRent(int rent2) {
-  this.rent = rent2;
+ public void setRent(int rent) {
+  this.rent = rent;
  }
 
  public int getRent() {

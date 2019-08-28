@@ -84,7 +84,7 @@ public class Database {
  public ArrayList < Expenditure > getAllExpenses() throws SQLException {
   Expenditure e;
   ArrayList < Expenditure > eList = new ArrayList < Expenditure > ();
-  sql = "SELECT CategoryPrice FROM expDaily ";
+  sql = "SELECT CategoryPrice FROM expDaily WHERE MONTH(AddedOn) = MONTH(CURRENT_DATE()) AND YEAR(AddedOn) = YEAR(CURRENT_DATE())";
   // 3. prepare sql statement to be executed
   stmt = (Statement) con.createStatement();
   // 4 get the resultset from execution
@@ -99,28 +99,46 @@ public class Database {
   stmt.close();
   return eList;
  }
- public ArrayList < Electricity > getAllRead() throws SQLException {
-  Electricity ele;
-  ArrayList < Electricity > eleList = new ArrayList < Electricity > ();
-  sql = "SELECT FirstRead,SecondRead FROM Electricity";
-  stmt = (Statement) con.createStatement();
-  rs = stmt.executeQuery(sql);
-  while (rs.next()) {
-   int firstRead = rs.getInt(1); // 1 indicate column 1st value
-   int secondRead = rs.getInt(2);
-   ele = new Electricity();
-   ele.setFirstRead(firstRead);
-   ele.setLastRead(secondRead);
-   eleList.add(ele);
-  }
-  rs.close();
-  stmt.close();
-  return eleList;
- }
+// public ArrayList < Electricity > getAllRead() throws SQLException {
+//  Electricity ele;
+//  ArrayList < Electricity > eleList = new ArrayList < Electricity > ();
+//  sql = "SELECT FirstRead,SecondRead FROM Electricity ORDER BY ElectricityID DESC LIMIT 1";
+//  stmt = (Statement) con.createStatement();
+//  rs = stmt.executeQuery(sql);
+//  while (rs.next()) {
+//   int firstRead = rs.getInt(1); // 1 indicate column 1st value
+//   int secondRead = rs.getInt(2);
+//   ele = new Electricity();
+//   ele.setFirstRead(firstRead);
+//   ele.setLastRead(secondRead);
+//   eleList.add(ele);
+//  }
+//  rs.close();
+//  stmt.close();
+//  return eleList;
+// }
+ public Electricity getAllRead() throws SQLException {
+	  Electricity   ele = new Electricity();
+	  int firstRead=0;
+	  //ArrayList < Electricity > eleList = new ArrayList < Electricity > ();
+	  sql = "SELECT FirstRead,SecondRead FROM Electricity ORDER BY ElectricityID DESC LIMIT 1";
+	  stmt = (Statement) con.createStatement();
+	  rs = stmt.executeQuery(sql);
+	  while (rs.next()) {
+	    firstRead = rs.getInt(1); // 1 indicate column 1st value
+	   int secondRead = rs.getInt(2);
+	 
+	   ele.setFirstRead(firstRead);
+	   ele.setLastRead(secondRead);
+	  }
+	  rs.close();
+	  stmt.close();
+	  return ele;
+	 }
  public int getRent() throws SQLException {
   //Rent r;
   int rent = 0;
-  sql = "SELECT RentPrice FROM Rent";
+  sql = "SELECT RentPrice FROM Rent ORDER BY RentID DESC LIMIT 1";
   stmt = (Statement) con.createStatement();
   rs = stmt.executeQuery(sql);
   while (rs.next()) {

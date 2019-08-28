@@ -52,13 +52,16 @@ public class MainClass {
      db.addRent(rent, "", "", true);
      break;
 
-    case 2:
-     startRead = ele.getFirstRead();
-     if (startRead <= 0) {
+    case 2:startRead = db.getAllRead().getFirstRead();
+      if (startRead <= 0) {
       System.out.println("Enter the starting meter reading unit");
       firstRead = sc.nextInt();
       ele.setFirstRead(firstRead);
      }
+      else {
+    	  firstRead=db.getAllRead().getLastRead();
+      }
+     
      System.out.println("Enter the last meter reading unit");
      secondRead = sc.nextInt();
      ele.setLastRead(secondRead);
@@ -78,14 +81,15 @@ public class MainClass {
 
     case 4:
      total = gt.getAllRead();
+     //System.out.println("total amount= " + total);
      rent = db.getRent();
      ebill = rent + (int)(total * unitPrice);
-     System.out.println("totol amount= " + ebill);
+     System.out.println("total amount= " + ebill);
      break;
 
     case 5:
      total = gt.TotalExpenses();
-     System.out.println("totol expenses amount= " + total);
+     System.out.println("total expenses amount= " + total);
      break;
 
     case 6:System.exit(0);
@@ -128,19 +132,10 @@ class GrandTotal {
  //		return total;
  //	}
  public int getAllRead() throws SQLException {
-  List < Electricity > eleList = new ArrayList < Electricity > ();
   Database db = new Database();
-  try {
-   eleList = db.getAllRead();
-  } catch (SQLException e) {
-   // TODO Auto-generated catch block
-   e.printStackTrace();
-  }
   int total = 0;
-  //		Electricity ec= new Electricity();
-  //		ec=eleList.get(0);
-  //total= ec.getLastRead()-ec.getFirstRead();	
-  total = eleList.get(0).getLastRead() - eleList.get(0).getFirstRead();
+  total= db.getAllRead().getLastRead()-db.getAllRead().getFirstRead();	
+  //total = eleList.get(0).getLastRead() - eleList.get(0).getFirstRead();
   return total;
  }
 
