@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import com.mysql.jdbc.Connection;
 import DatabBase.Database;
 import model.Electricity;
 import model.Rent;
