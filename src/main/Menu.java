@@ -1,6 +1,4 @@
 package main;
-
-
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 
@@ -26,18 +24,20 @@ JLabel label;
 JButton button;
 JTextField t;
 Menu(){
-frame = new JFrame("textfield");
+JFrame frame = new JFrame("textfield");
 JButton button=new JButton("Add Rent");//create button  
 JPanel p = new JPanel(); 
 button.setBounds(130,100,100, 40);  
-label = new JLabel("rent");
+JLabel label = new JLabel("rent");
+t = new JTextField("enter the rent", 16); 
 add(label);
-//add(frame);
 add(button);//adding button on frame 
 p.add(label);
 p.add(button);
-setSize(400,500);  
-setLayout(null);  
+p.add(label);
+frame.add(p);
+frame.setSize(400,500);  
+//setLayout(null);  
 setVisible(true);  
 }  
 
