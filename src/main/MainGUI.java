@@ -5,13 +5,10 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.*;
 import DataBase.Database;
 import model.Electricity;
 import model.Expenditure;
-
-import javax.swing.*;
 
 public class MainGUI extends JFrame implements ActionListener { // inheriting JFrame
 
@@ -24,11 +21,11 @@ public class MainGUI extends JFrame implements ActionListener { // inheriting JF
  int unitPrice = 15;
  MainGUI() {
   db = new Database();
-  btnRent = new JButton("Add Rent"); // create button
+  btnRent = new JButton("Rent"); // create button
   btnRent.addActionListener(this);
-  btnElectricity = new JButton("Add Electricity");
+  btnElectricity = new JButton("Electricity");
   btnElectricity.addActionListener(this);
-  btnExpenditure = new JButton("Add Daily Kharcha");
+  btnExpenditure = new JButton("Daily Kharcha");
   btnExpenditure.addActionListener(this);
   btnTrent = new JButton("Rent amount");
   btnTrent.addActionListener(this);
@@ -72,6 +69,7 @@ public class MainGUI extends JFrame implements ActionListener { // inheriting JF
     String input = JOptionPane.showInputDialog(this, "Enter the second meter reading unit");
     secondRead = Integer.parseInt(input);
     db.addElectricity(firstRead, secondRead, "");
+    JOptionPane.showMessageDialog(this, "Electricity meter reading added successfully");
    } catch (SQLException e1) {
     // TODO Auto-generated catch block
     e1.printStackTrace();
@@ -81,12 +79,13 @@ public class MainGUI extends JFrame implements ActionListener { // inheriting JF
 
   if (e.getSource().equals(btnExpenditure)) {
    int itemPrice;
+   try {
    String itemName = JOptionPane.showInputDialog(this, "Enter the item name:");
    String inputPrice = JOptionPane.showInputDialog(this, "Enter the item price:");
    itemPrice = Integer.parseInt(inputPrice);
-   exp.setItem(itemName, itemPrice);
-   try {
-    db.addExpDaily(exp);
+   exp.setItem(itemName, itemPrice);   
+   db.addExpDaily(exp);
+   JOptionPane.showMessageDialog(this, "Expenditure meter added successfully");
    } catch (SQLException e1) {
     // TODO Auto-generated catch block
     e1.printStackTrace();
@@ -107,7 +106,7 @@ public class MainGUI extends JFrame implements ActionListener { // inheriting JF
   if (e.getSource().equals(btntExpenditure)) {
 	   try {
 	    int total = gt.TotalExpenses();
-	    JOptionPane.showMessageDialog(this, " Total Rent Amount is: "+total);
+	    JOptionPane.showMessageDialog(this, " Total Expenditure ofcurrent month is: "+total);
 	   } catch (SQLException e1) {
 	    // TODO Auto-generated catch block
 	    e1.printStackTrace();
