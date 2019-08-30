@@ -6,7 +6,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import DatabBase.Database;
+
+import DataBase.Database;
 import model.Electricity;
 import model.Rent;
 import model.Expenditure;
@@ -39,7 +40,7 @@ public class MainClass {
    System.out.println("3.Daily Kharcha");
    System.out.println("4.Calcuate Rent amount");
    System.out.println("5.Calculation Total Expenditure");
-   System.out.println("6.Exist");
+   System.out.println("6.Exit");
 
    System.out.println("Enter your choice");
    ch = sc.nextInt();
@@ -102,55 +103,25 @@ public class MainClass {
  }
 }
 
-class GrandTotal {
- int firstRead;
- int startRead;
- int lastRead;
- int unitPrice = 15;
- int totalUnit;
- int expenses;
- Expenditure expenditure;
- Electricity ele = new Electricity();
- Expenditure exp = new Expenditure();
-
- public int Total() {
-  firstRead = ele.getFirstRead();
-  lastRead = ele.getLastRead();
-  //unitPrice = ele.getUnitPrice();
-  totalUnit = lastRead - firstRead;
-  int ebill = unitPrice * totalUnit;
-  return ebill;
- }
- //	public  int Total(int ebill,int rent)
- //	{		
- //		
- //		expenditure=exp.getExpenditure();//getting exp obj from expenditure class
- //		expenses= expenditure.getItemPrice();//extracting expenditure obj
- //		int total = ebill+rent+expenses;
- //	
- //		return total;
- //	}
- public int getAllRead() throws SQLException {
-  Database db = new Database();
-  int total = 0;
-  total= db.getAllRead().getLastRead()-db.getAllRead().getFirstRead();	
-  //total = eleList.get(0).getLastRead() - eleList.get(0).getFirstRead();
-  return total;
- }
-
- public int TotalExpenses() throws SQLException {
-  List < Expenditure > eList = new ArrayList < Expenditure > ();
-  Database db = new Database();
-  try {
-   eList = db.getAllExpenses();
-  } catch (SQLException e) {
-   // TODO Auto-generated catch block
-   e.printStackTrace();
-  }
-  int total = 0;
-  for (int i = 0; i < eList.size(); i++) {
-   total += eList.get(i).getItemPrice();
-  }
-  return total;
- }
-}
+/*
+ * class GrandTotal { int firstRead; int startRead; int lastRead; int unitPrice
+ * = 15; int totalUnit; int expenses; Expenditure expenditure; Electricity ele =
+ * new Electricity(); Expenditure exp = new Expenditure();
+ * 
+ * public int Total() { firstRead = ele.getFirstRead(); lastRead =
+ * ele.getLastRead(); //unitPrice = ele.getUnitPrice(); totalUnit = lastRead -
+ * firstRead; int ebill = unitPrice * totalUnit; return ebill; } // public int
+ * Total(int ebill,int rent) // { // //
+ * expenditure=exp.getExpenditure();//getting exp obj from expenditure class //
+ * expenses= expenditure.getItemPrice();//extracting expenditure obj // int
+ * total = ebill+rent+expenses; // // return total; // } public int getAllRead()
+ * throws SQLException { Database db = new Database(); int total = 0; total=
+ * db.getAllRead().getLastRead()-db.getAllRead().getFirstRead(); //total =
+ * eleList.get(0).getLastRead() - eleList.get(0).getFirstRead(); return total; }
+ * 
+ * public int TotalExpenses() throws SQLException { List < Expenditure > eList =
+ * new ArrayList < Expenditure > (); Database db = new Database(); try { eList =
+ * db.getAllExpenses(); } catch (SQLException e) { // TODO Auto-generated catch
+ * block e.printStackTrace(); } int total = 0; for (int i = 0; i < eList.size();
+ * i++) { total += eList.get(i).getItemPrice(); } return total; } }
+ */
