@@ -47,7 +47,7 @@ public class MainClass {
     case 1:
      System.out.println("Enter the rent amount");
      rent = sc.nextInt();
-     r.setRent(rent);
+    // r.setRent(rent);
      db.addRent(rent, "", "", true);
      break;
 
