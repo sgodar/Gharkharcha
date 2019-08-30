@@ -103,6 +103,20 @@ public class MainClass {
  }
 }
 
+
+
+/*
+ * if(gt.verify(inputPrice))
+ * 
+ * public boolean verify(String input) { for(int i=0;i<input.length();i++) { if
+ * (Character.isDigit(input.charAt(i))== false) { return false; }
+ * 
+ * } return true; }
+ * 
+ */
+
+
+
 /*
  * class GrandTotal { int firstRead; int startRead; int lastRead; int unitPrice
  * = 15; int totalUnit; int expenses; Expenditure expenditure; Electricity ele =
