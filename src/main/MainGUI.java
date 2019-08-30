@@ -18,6 +18,7 @@ public class MainGUI extends JFrame implements ActionListener { // inheriting JF
  Database db;
  Expenditure exp = new Expenditure();
  GrandTotal gt = new GrandTotal();
+ //verify v = new verify();
  int unitPrice = 15;
  MainGUI() {
   db = new Database();
@@ -52,22 +53,42 @@ public class MainGUI extends JFrame implements ActionListener { // inheriting JF
 
   if (e.getSource().equals(btnRent)) {
    String input = JOptionPane.showInputDialog(this, "Enter Rent Amount");
+  if(gt.verify(input)) {
    int rAmt = Integer.parseInt(input);
    db.addRent(rAmt, "", "", true);
    JOptionPane.showMessageDialog(this, " Rent Amount added successfully");
-  } else if (e.getSource().equals(btnElectricity)) {
+  }
+  else {
+	  JOptionPane.showMessageDialog(this, " Please enter valid input");
+  }
+  } 
+  else if (e.getSource().equals(btnElectricity)) {
    int firstRead = 0;
-   int secondRead;
+   int secondRead = 0;
    try {
     int startRead = db.getAllRead().getFirstRead();
     if (startRead <= 0) {
      String input = JOptionPane.showInputDialog(this, "Enter the starting meter reading unit");
+     if(gt.verify(input)) {
      firstRead = Integer.parseInt(input);
-    } else {
+     }
+     else
+     {
+    	 JOptionPane.showMessageDialog(this, " Please enter valid input");
+    	 
+     }
+    } 
+    else {
      firstRead = db.getAllRead().getLastRead();
     }
     String input = JOptionPane.showInputDialog(this, "Enter the second meter reading unit");
+    if(gt.verify(input)) {
     secondRead = Integer.parseInt(input);
+    }
+    else
+    {
+    	JOptionPane.showMessageDialog(this, " Please enter valid input");
+    }
     db.addElectricity(firstRead, secondRead, "");
     JOptionPane.showMessageDialog(this, "Electricity meter reading added successfully");
    } catch (SQLException e1) {
@@ -77,12 +98,19 @@ public class MainGUI extends JFrame implements ActionListener { // inheriting JF
    }
   }
 
-  if (e.getSource().equals(btnExpenditure)) {
-   int itemPrice;
+  else if (e.getSource().equals(btnExpenditure)) {
+   int itemPrice = 0;
    try {
    String itemName = JOptionPane.showInputDialog(this, "Enter the item name:");
+   
    String inputPrice = JOptionPane.showInputDialog(this, "Enter the item price:");
+   if(gt.verify(inputPrice)) {
    itemPrice = Integer.parseInt(inputPrice);
+   }
+   else
+   {
+	   JOptionPane.showMessageDialog(this, " Please enter valid input");
+   }
    exp.setItem(itemName, itemPrice);   
    db.addExpDaily(exp);
    JOptionPane.showMessageDialog(this, "Expenditure meter added successfully");
@@ -91,7 +119,7 @@ public class MainGUI extends JFrame implements ActionListener { // inheriting JF
     e1.printStackTrace();
    }
   }
-  if (e.getSource().equals(btnTrent)) {
+  else if (e.getSource().equals(btnTrent)) {
    try {
     int total = gt.getAllRead();
     int rent = db.getRent();
@@ -103,7 +131,7 @@ public class MainGUI extends JFrame implements ActionListener { // inheriting JF
    }
 
   }
-  if (e.getSource().equals(btntExpenditure)) {
+  else if (e.getSource().equals(btntExpenditure)) {
 	   try {
 	    int total = gt.TotalExpenses();
 	    JOptionPane.showMessageDialog(this, " Total Expenditure ofcurrent month is: "+total);
@@ -113,7 +141,7 @@ public class MainGUI extends JFrame implements ActionListener { // inheriting JF
 	   }
 
 	  }
-  if (e.getSource().equals(btntExpenditure)) {
+  else if (e.getSource().equals(btnExit)) {
 	  System.exit(0);
 	  }
   
@@ -166,4 +194,15 @@ class GrandTotal {
   }
   return total;
  }
+ public boolean verify(String input) {
+     for(int i=0;i<input.length();i++)
+     {
+    	 if (Character.isDigit(input.charAt(i))== false)
+    	 {
+    		 return false; 
+    	 }
+    	
+     }
+     return true;
+}
 }

@@ -137,7 +137,6 @@ public class Database {
 		while (rs.next()) {
 			firstRead = rs.getInt(1); // 1 indicate column 1st value
 			int secondRead = rs.getInt(2);
-
 			ele.setFirstRead(firstRead);
 			ele.setLastRead(secondRead);
 		}
