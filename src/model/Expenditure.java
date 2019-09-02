@@ -1,6 +1,7 @@
 package model;
 public class Expenditure {
- private int expenditure;
+
+private int expenditure;
  private String itemName;
  private int itemPrice;
  private String item;
@@ -28,4 +29,10 @@ public class Expenditure {
   this.itemName = itemName;
   this.itemPrice = itemPrice;
  }
+ @Override
+	public String toString() {
+		return "Expenditure [expenditure=" + expenditure + ", itemName=" + itemName + ", itemPrice=" + itemPrice
+				+ ", item=" + item + "]";
+	}
+
 }

@@ -1,5 +1,7 @@
 package model;
 public class Electricity {
+	
+
 	private int firstRead;
 	private int lastRead;
 	// private int unitPrice=15;
@@ -25,6 +27,10 @@ public class Electricity {
 
 	public void setLastRead(int lastRead) {
 		this.lastRead = lastRead;
+	}
+	@Override
+	public String toString() {
+		return "Electricity [firstRead=" + firstRead + ", lastRead=" + lastRead + "]";
 	}
 
 	//		public int getUnitPrice() {

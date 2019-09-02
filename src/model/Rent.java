@@ -2,6 +2,8 @@ package model;
 
 
 public class Rent {//extends JFrame implements ActionListener {
+	
+
 	private  int rent;
 	public Rent() {
 		// TODO Auto-generated constructor stub
@@ -14,6 +16,10 @@ public void setRent(int rent) {
 
 	public int getRent() {
 		return rent;
+	}
+	@Override
+	public String toString() {
+		return "Rent [rent=" + rent + "]";
 	}
 
 }

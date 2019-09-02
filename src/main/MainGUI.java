@@ -111,7 +111,7 @@ public class MainGUI extends JFrame implements ActionListener { // inheriting JF
 					itemPrice = Integer.parseInt(inputPrice);
 					exp.setItem(itemName, itemPrice);
 					db.addExpDaily(exp);
-					JOptionPane.showMessageDialog(this, "Expenditure meter added successfully");
+					JOptionPane.showMessageDialog(this, "Expenditure added successfully");
 				} else {
 					JOptionPane.showMessageDialog(this, " Please enter valid input");
 				}
